@@ -5,10 +5,10 @@
 name: 'dbt_tpch'
 version: '1.0'
 
-source-paths: ["models"]
+model-paths: ["models"]
 analysis-paths: ["analysis"] 
 test-paths: ["tests"]
-data-paths: ["data"]
+seed-paths: ["data"]
 macro-paths: ["macros"]
 
 target-path: "target"  # directory which will store compiled SQL files
@@ -25,12 +25,11 @@ quoting:
     identifier: false
     schema: false
 
+vars:
+  max_ship_date: "'1998-12-01'"
+
 models:
   dbt_tpch:
-
-      vars:
-        max_ship_date: "'1998-12-01'"
-
       base:
         schema: base
       ods:
